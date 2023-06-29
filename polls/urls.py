@@ -3,6 +3,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # ex: /polls/
     path("", views.index, name="index"),
-    path("ardi", views.index, name="ardi"),
+    # ex: /polls/5/
+    path("<int:question_id>/", views.detail, name="detail"),
+    # ex: /polls/5/results/
+    path("<int:question_id>/results/", views.results, name="results"),
+    # ex: /polls/5/vote/
+    path("<int:question_id>/vote/", views.vote, name="vote"),
+    #ex: /polls/5/7
+    path("<int:question_id>/<int:ardi_id>", views.detail2, name="detail"),
+
 ]
